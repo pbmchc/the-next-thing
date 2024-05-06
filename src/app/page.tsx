@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import { PageHeading } from '@/components/PageHeading';
 
-export default function Home() {
+export default function Root() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      ROOT PAGE
-    </main>
+    <section>
+      <PageHeading>The root route</PageHeading>
+    </section>
   );
 }
