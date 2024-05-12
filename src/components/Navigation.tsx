@@ -44,6 +44,9 @@ export const Navigation = () => {
         <li className="mt-6">
           <NavigationLink to="/intercepting">Intercepting</NavigationLink>
         </li>
+        <li className="mt-6">
+          <NavigationLink to="/routing/w">Routing</NavigationLink>
+        </li>
       </ul>
     </nav>
   );
