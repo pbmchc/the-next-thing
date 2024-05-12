@@ -14,7 +14,13 @@ export default async function InterceptingRoute({ params }: PageParams) {
   const item = await getItem(params.slug);
 
   if (!item) {
-    notFound();
+    return (
+      <Dialog>
+        <p className="px-4 py-8">
+          Item <b>{params.slug}</b> not found!
+        </p>
+      </Dialog>
+    );
   }
 
   return (

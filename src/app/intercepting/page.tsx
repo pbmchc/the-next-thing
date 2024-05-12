@@ -21,7 +21,8 @@ export default async function InterceptingRoutesList() {
       </PageHeading>
       <header className="flex gap-4 py-4">
         <button className="border-b-2 border-solid border-gray-400">All items</button>
-        <Link href="/login">My items</Link>
+        <Link href="/login">My items (login)</Link>
+        <Link href="/register">My items (register)</Link>
       </header>
       <ul className="mb-4 grid grid-cols-2 gap-4">
         {items.map(({ title, slug, description }, index) => (
