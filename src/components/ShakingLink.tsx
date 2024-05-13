@@ -4,7 +4,13 @@ import { useState } from 'react';
 import { type ReactNode } from 'react';
 import Link from 'next/link';
 
-export const ShakingLink = ({ children }: { children: ReactNode }) => {
+export const ShakingLink = ({
+  children,
+  href,
+}: {
+  children: ReactNode;
+  href: string;
+}) => {
   const [isPresentationOver, setIsPresentationOver] = useState(false);
 
   if (isPresentationOver) {
@@ -13,8 +19,8 @@ export const ShakingLink = ({ children }: { children: ReactNode }) => {
 
   return (
     <Link
-      className="hover:animate-shaking text-2xl"
-      href="/routing/w/js"
+      className="text-2xl hover:animate-shaking"
+      href={href}
       onClick={() => setIsPresentationOver(true)}
     >
       {children}

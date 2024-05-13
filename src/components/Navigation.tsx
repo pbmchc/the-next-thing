@@ -45,7 +45,7 @@ export const Navigation = () => {
           <NavigationLink to="/intercepting">Intercepting</NavigationLink>
         </li>
         <li className="mt-6">
-          <NavigationLink to="/routing/w">Routing</NavigationLink>
+          <NavigationLink to="/w">Routing</NavigationLink>
         </li>
       </ul>
     </nav>
