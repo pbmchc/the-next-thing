@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 export const ShakingLink = ({
@@ -19,7 +19,7 @@ export const ShakingLink = ({
 
   return (
     <Link
-      className="text-2xl hover:animate-shaking"
+      className="hover:animate-shake text-2xl"
       href={href}
       onClick={() => setIsPresentationOver(true)}
     >

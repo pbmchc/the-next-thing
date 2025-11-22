@@ -1,9 +1,8 @@
-import { notFound } from 'next/navigation';
 import { Dialog } from '@/components/Dialog';
 import { ITEMS } from '@/app/_content';
 
 type PageParams = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 const getItem = async (slug: string) => {
@@ -11,13 +10,14 @@ const getItem = async (slug: string) => {
 };
 
 export default async function InterceptingRoute({ params }: PageParams) {
-  const item = await getItem(params.slug);
+  const { slug } = await params;
+  const item = await getItem(slug);
 
   if (!item) {
     return (
       <Dialog>
         <p className="px-4 py-8">
-          Item <b>{params.slug}</b> not found!
+          Item <b>{slug}</b> not found!
         </p>
       </Dialog>
     );

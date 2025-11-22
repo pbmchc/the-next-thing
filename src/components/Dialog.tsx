@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { ElementRef, ReactNode } from 'react';
+import type { ComponentRef, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 
 export function Dialog({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const dialogRef = useRef<ElementRef<'dialog'>>(null);
+  const dialogRef = useRef<ComponentRef<'dialog'>>(null);
 
   function handleDialogDismiss() {
     router.back();
@@ -29,7 +29,7 @@ export function Dialog({ children }: { children: ReactNode }) {
         onClose={handleDialogDismiss}
       >
         <button
-          className="absolute right-4 top-2 mb-4 p-2 font-mono text-4xl"
+          className="absolute top-2 right-4 mb-4 cursor-pointer p-2 font-mono text-4xl"
           title="Dismiss dialog"
           onClick={handleDialogDismiss}
         >

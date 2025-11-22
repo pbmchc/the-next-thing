@@ -1,11 +1,12 @@
 import { PageHeading } from '@/components/PageHeading';
 
 type DynamicPageParams = {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 };
 
-export default function DynamicWitOptionalCatchAll({ params }: DynamicPageParams) {
-  const segments = params.slug ? params.slug.join('-') : 'including-none';
+export default async function DynamicWitOptionalCatchAll({ params }: DynamicPageParams) {
+  const { slug } = await params;
+  const segments = slug ? slug.join('-') : 'including-none';
   return (
     <section>
       <PageHeading>

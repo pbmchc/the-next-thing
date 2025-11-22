@@ -4,7 +4,7 @@ import { PageHeading } from '@/components/PageHeading';
 import { ITEMS } from '@/app/_content';
 
 type PageParams = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 const getItem = async (slug: string) => {
@@ -12,7 +12,8 @@ const getItem = async (slug: string) => {
 };
 
 export default async function NonInterceptedRoute({ params }: PageParams) {
-  const item = await getItem(params.slug);
+  const { slug } = await params;
+  const item = await getItem(slug);
 
   if (!item) {
     notFound();
